@@ -1,0 +1,57 @@
+/* Cabeçalho */
+header {
+    background-color: #1637f1;
+    /* Cor de fundo */
+    color: #f6faf7;
+    /* Cor do texto */
+    padding: 20px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Alinhamento do texto */
+}
+
+/*Conteúdo principal */
+main {
+    padding: 20px;
+    /* Espaçamento interno */
+    font: 1em sans-serif;
+    text-align: center;
+    /* Alinhamento do texto */
+    margin-top: 80px;
+    /* Espaçamento superior */
+
+}
+
+#profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-top: 20px;
+    font: 1.5em sans-serif;
+}
+
+
+
+
+img {
+
+    border-radius: 90%;
+    border: 2px solid rgb(126, 179, 226);
+
+}
+
+/*  rodapé */
+footer {
+    background-color: #333;
+    /* Cor de fundo */
+    color: #fff;
+    /* Cor do texto */
+    text-align: center;
+    /* Alinhamento do texto */
+    position: fixed;
+    /* Fixar no rodapé */
+    width: 100%;
+    /* Largura total */
+
+}
