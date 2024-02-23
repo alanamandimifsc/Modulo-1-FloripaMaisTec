@@ -1,0 +1,44 @@
+/* Crie um arquivo CSS chamado styles.css e adicione um estilo básico para o cabeçalho, o conteúdo principal e o rodapé */
+
+
+/* Cabeçalho */
+header {
+    background-color: #8d0b0b;
+    /* Cor de fundo */
+    color: #0edc56;
+    /* Cor do texto */
+    padding: 20px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Alinhamento do texto */
+}
+
+/*Conteúdo principal */
+main {
+    padding: 20px;
+    /* Espaçamento interno */
+    font: 1em sans-serif;
+    text-align: center;
+    /* Alinhamento do texto */
+    margin-top: 100px;
+    /* Espaçamento superior */
+
+}
+
+/*  rodapé */
+footer {
+    background-color: #333;
+    /* Cor de fundo */
+    color: #fff;
+    /* Cor do texto */
+    padding: 10px;
+    /* Espaçamento interno */
+    text-align: center;
+    /* Alinhamento do texto */
+    position: fixed;
+    /* Fixar no rodapé */
+    bottom: 0;
+    /* Posicionamento na parte inferior */
+    width: 100%;
+    /* Largura total */
+}
