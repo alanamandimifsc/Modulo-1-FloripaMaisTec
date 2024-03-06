@@ -5,95 +5,40 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Exercicio Semana 07</title>
-    <!-- <link rel="stylesheet" href="style.css"> -->
-    <style>
-        html,
-        body {
-            padding: 0;
-            margin: 0;
-            width: 100%;
-            height: 100%;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        .container {
-            display: grid;
-            grid-template-areas: "header header header" "content sidebar sidebar";
-            grid-template-columns: auto 260px;
-            grid-template-rows: auto 1fr;
-            gap: 10px;
-            height: 100vh;
-        }
-
-        .header {
-            background-color: aqua;
-            grid-area: header;
-            padding: 10px;
-        }
-
-        .content {
-            background-color: lightblue;
-            grid-area: content;
-            padding: 10px;
-            overflow-y: auto;
-        }
-
-        .sidebar {
-            background-color: lightgreen;
-            grid-area: sidebar;
-            padding: 10px;
-        }
-
-        .sidebar ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .sidebar ul li {
-            margin-bottom: 5px;
-        }
-
-        .sidebar ul li a {
-            text-decoration: none;
-            color: black;
-        }
-    </style>
 </head>
 
 <body>
     <div class="container">
-        <div class="header">
-            <nav>
-                <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Our Team</a></li>
-                    <li><a href="#">Projects</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
-        </div>
-        <div class="content">
-            <h1>Content</h1>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.</p>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                fugiat nulla pariatur.</p>
-            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est
-                laborum.</p>
-        </div>
-        <div class="sidebar">
-            <h2>Sidebar</h2>
-            <ul>
-                <li><a href="#">Opção 1</a></li>
-                <li><a href="#">Opção 2</a></li>
-                <li><a href="#">Opção 3</a></li>
-                <li><a href="#">Opção 4</a></li>
-            </ul>
+        <div class="tela-login">
+
+            <div class="coluna1">
+                <h1>Sign In to this session</h1>
+                <p>If you don't have an account, You can <a href="#">Register here!</a></p>
+                <img src="./imagem.png" alt="imagem">
+
+            </div>
+            <div class="coluna2">
+
+                <form class="form">
+                    <input type="email" id="email" placeholder=" Email address">
+                    <input type="password" id="password" placeholder=" Password">
+                    <i class='bx bxs-low-vision'></i>
+                    <a href="">Forgot Password</a>
+                    <button class="button">Sign In</button>
+                    <div class="contas-socias">
+                        <div class="linha"></div>
+                        <span>Or</span>
+                        <div class="linha"></div>
+                        <ul>
+                            <button class="google"><img src="./google.png" alt="logo google">Continue with
+                                Google</button>
+                            <button class="facebook"><img src="./facebook.png"> Continue with Facebook</button>
+                        </ul>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </body>
