@@ -26,3 +26,6 @@ document.body.removeChild(novoElemento);
 for (var i = 0; i < elementos.length; i++) {
     elementos[i].style.cssText = 'background-color: yellow; color: green; padding: 10px;';
 };
+
+// adicionar uma nova classe a um elemento
+elemento.setAttribute('class', 'novo-titulo');
