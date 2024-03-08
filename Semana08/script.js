@@ -29,3 +29,6 @@ for (var i = 0; i < elementos.length; i++) {
 
 // adicionar uma nova classe a um elemento
 elemento.setAttribute('class', 'novo-titulo');
+
+// remover uma classe de um elemento
+elemento.removeAttribute('class', 'novo-titulo');
