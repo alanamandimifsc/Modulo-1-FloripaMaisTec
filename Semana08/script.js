@@ -32,3 +32,8 @@ elemento.setAttribute('class', 'novo-titulo');
 
 // remover uma classe de um elemento
 elemento.removeAttribute('class', 'novo-titulo');
+
+//adicionar atributo
+elemento.setAttribute('data-id', '1');
+
+
