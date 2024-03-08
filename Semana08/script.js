@@ -17,3 +17,6 @@ novoElemento.textContent = 'Novo elemento';
 novoElemento.style.cssText = 'background-color: blue; color: white; padding: 10px;';
 
 document.body.appendChild(novoElemento);
+
+//remover um elemento filho
+document.body.removeChild(novoElemento);
