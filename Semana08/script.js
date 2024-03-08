@@ -20,3 +20,9 @@ document.body.appendChild(novoElemento);
 
 //remover um elemento filho
 document.body.removeChild(novoElemento);
+
+
+// alterar todos elementos de uma classe
+for (var i = 0; i < elementos.length; i++) {
+    elementos[i].style.cssText = 'background-color: yellow; color: green; padding: 10px;';
+};
