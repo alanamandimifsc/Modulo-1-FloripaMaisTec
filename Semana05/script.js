@@ -32,9 +32,19 @@ materias = [
 ];
 
 carrinhoDeCompras = [];
-function excluir(event) {
+function excluir(event, nome) {
     let item = event.target.parentElement;
+    let valor = 0;
     item.remove();
+    for (let material of carrinhoDeCompras) {
+        if (material.nome === nome) {
+            valor = material.preco;
+            carrinhoDeCompras.splice(carrinhoDeCompras.indexOf(material), 1);
+        }
+    }
+    let total = document.querySelector('#total');
+    total.innerText = 'Valor total: R$' + (total.innerText.split('R$')[1] - valor).toFixed(2);
+
 }
 
 consultar.addEventListener('click', (event) => {
@@ -65,11 +75,24 @@ comprar.addEventListener('click', (event) => {
         let carrinhoLista = document.querySelector('#carrinho');
         let buton = document.createElement('button');
         buton.innerText = 'Remover';
-        buton.addEventListener('click', excluir);
+        buton.addEventListener('click', (event) => {
+            excluir(event, material.nome);
+        });
+
         lista.appendChild(buton);
         carrinhoLista.appendChild(lista);
         carrinhoDeCompras.push(material);
         console.log(carrinhoDeCompras);
+
+        let total = 0;
+        for (let produto of carrinhoDeCompras) {
+            total += produto.preco;
+        }
+
+        let totalCarrinho = document.querySelector('#total');
+        totalCarrinho.innerText = 'Valor total: R$' + total.toFixed(2);
+
+
 
     } else {
         alert('Material não encontrado');
@@ -79,16 +102,6 @@ comprar.addEventListener('click', (event) => {
 
 carrinhoConsulta.addEventListener('click', (event) => {
     event.preventDefault();
-    let total = 0;
-    for (let produto of carrinhoDeCompras) {
-        total += produto.preco;
-    }
-    if (carrinhoDeCompras.length === 0) {
-        alert('Carrinho vazio');
-    } else {
-        let totalCarrinho = document.querySelector('#total');
-        totalCarrinho.innerText = 'Valor total: R$' + total.toFixed(2);
-    }
 
 });
 
