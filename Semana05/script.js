@@ -1,5 +1,6 @@
 let consultar = document.querySelector('#btn-consulta');
 let comprar = document.querySelector('#btn-comprar');
+let carrinhoConsulta = document.querySelector('#consulta-carrinho');
 let material;
 
 materias = [
@@ -30,8 +31,11 @@ materias = [
     }
 ];
 
-carrinho = [];
-
+carrinhoDeCompras = [];
+function excluir(event) {
+    let item = event.target.parentElement;
+    item.remove();
+}
 
 consultar.addEventListener('click', (event) => {
     event.preventDefault();
@@ -52,12 +56,40 @@ consultar.addEventListener('click', (event) => {
 
 comprar.addEventListener('click', (event) => {
     event.preventDefault();
+    console.log(material);
     if (material) {
-        carrinho.push(material);
-        console.log(carrinho);
+        // carrinho.push(material);
+        let lista = document.createElement('li');
+
+        lista.innerText = material.nome + ' - R$' + material.preco.toFixed(2);
+        let carrinhoLista = document.querySelector('#carrinho');
+        let buton = document.createElement('button');
+        buton.innerText = 'Remover';
+        buton.addEventListener('click', excluir);
+        lista.appendChild(buton);
+        carrinhoLista.appendChild(lista);
+        carrinhoDeCompras.push(material);
+        console.log(carrinhoDeCompras);
 
     } else {
         alert('Material não encontrado');
     }
 
 });
+
+carrinhoConsulta.addEventListener('click', (event) => {
+    event.preventDefault();
+    let total = 0;
+    for (let produto of carrinhoDeCompras) {
+        total += produto.preco;
+    }
+    if (carrinhoDeCompras.length === 0) {
+        alert('Carrinho vazio');
+    } else {
+        let totalCarrinho = document.querySelector('#total');
+        totalCarrinho.innerText = 'Valor total: R$' + total.toFixed(2);
+    }
+
+});
+
+

@@ -26,6 +26,14 @@
                 <span id="preco-consulta"></span>
 
             </div>
+            <div class="carrinho">
+                <button id="consulta-carrinho">Calcular valor total da compra</button>
+                <ul id="carrinho">
+
+
+                </ul>
+                <span id="total"></span>
+            </div>
         </form>
     </div>
 
@@ -35,7 +43,7 @@
             flex-direction: column;
             align-items: center;
             /* justify-content: center; */
-            height: 100vh;
+            /* height: 100vh; */
         }
 
         .formulario {
@@ -60,7 +68,8 @@
             justify-content: center;
         }
 
-        .btns button {
+        .btns button,
+        #consulta-carrinho {
             margin: 0 10px;
             padding: 10px;
             border: 1px solid #000;
