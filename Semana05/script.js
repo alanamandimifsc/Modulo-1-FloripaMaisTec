@@ -1,9 +1,11 @@
+// Selecionando os elementos do HTML
 let consultar = document.querySelector('#btn-consulta');
 let comprar = document.querySelector('#btn-comprar');
 let carrinhoConsulta = document.querySelector('#consulta-carrinho');
 let material;
 
-materias = [
+// Lista de materiais disponíveis
+let materias = [
     {
         codigo: '001',
         nome: 'Caderno',
@@ -31,7 +33,10 @@ materias = [
     }
 ];
 
-carrinhoDeCompras = [];
+// Carregar o carrinho do localStorage ou inicializar como uma lista vazia
+let carrinhoDeCompras = JSON.parse(localStorage.getItem('carrinhoDeCompras')) || [];
+
+// Função para remover um item do carrinho
 function excluir(event, nome) {
     let item = event.target.parentElement;
     let valor = 0;
@@ -45,8 +50,11 @@ function excluir(event, nome) {
     let total = document.querySelector('#total');
     total.innerText = 'Valor total: R$' + (total.innerText.split('R$')[1] - valor).toFixed(2);
 
+    // Atualizar o localStorage após excluir um item do carrinho
+    localStorage.setItem('carrinhoDeCompras', JSON.stringify(carrinhoDeCompras));
 }
 
+// Event listener para consultar o preço de um item
 consultar.addEventListener('click', (event) => {
     event.preventDefault();
     let codigo = document.querySelector('#codigo');
@@ -60,17 +68,13 @@ consultar.addEventListener('click', (event) => {
         alert('Material não encontrado');
     }
     codigo.value = '';
-
-
 });
 
+// Event listener para adicionar um item ao carrinho
 comprar.addEventListener('click', (event) => {
     event.preventDefault();
-    console.log(material);
     if (material) {
-        // carrinho.push(material);
         let lista = document.createElement('li');
-
         lista.innerText = material.nome + ' - R$' + material.preco.toFixed(2);
         let carrinhoLista = document.querySelector('#carrinho');
         let buton = document.createElement('button');
@@ -78,31 +82,35 @@ comprar.addEventListener('click', (event) => {
         buton.addEventListener('click', (event) => {
             excluir(event, material.nome);
         });
-
         lista.appendChild(buton);
         carrinhoLista.appendChild(lista);
         carrinhoDeCompras.push(material);
-        console.log(carrinhoDeCompras);
-
         let total = 0;
         for (let produto of carrinhoDeCompras) {
             total += produto.preco;
         }
-
         let totalCarrinho = document.querySelector('#total');
         totalCarrinho.innerText = 'Valor total: R$' + total.toFixed(2);
 
-
-
+        // Salvar o carrinho no localStorage após adicionar um item
+        localStorage.setItem('carrinhoDeCompras', JSON.stringify(carrinhoDeCompras));
     } else {
         alert('Material não encontrado');
     }
-
 });
 
+// Event listener para calcular o valor total da compra
 carrinhoConsulta.addEventListener('click', (event) => {
     event.preventDefault();
-
 });
 
+// Função para carregar o carrinho do localStorage
+function carregarCarrinhoDoLocalStorage() {
+    const carrinhoSalvo = localStorage.getItem('carrinhoDeCompras');
+    if (carrinhoSalvo) {
+        carrinhoDeCompras = JSON.parse(carrinhoSalvo);
+    }
+}
 
+// Chamada para carregar o carrinho ao carregar a página
+carregarCarrinhoDoLocalStorage();
