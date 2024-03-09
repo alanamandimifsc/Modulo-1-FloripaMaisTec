@@ -1,6 +1,6 @@
 let consultar = document.querySelector('#btn-consulta');
 let comprar = document.querySelector('#btn-comprar');
-
+let material;
 
 materias = [
     {
@@ -30,11 +30,13 @@ materias = [
     }
 ];
 
+carrinho = [];
+
 
 consultar.addEventListener('click', (event) => {
     event.preventDefault();
     let codigo = document.querySelector('#codigo');
-    let material = materias.find((materia) => materia.codigo === codigo.value);
+    material = materias.find((materia) => materia.codigo === codigo.value);
     if (material) {
         let preco = document.querySelector('#preco-consulta');
         preco.innerText = 'R$' + material.preco.toFixed(2);
@@ -45,5 +47,17 @@ consultar.addEventListener('click', (event) => {
     }
     codigo.value = '';
 
+
+});
+
+comprar.addEventListener('click', (event) => {
+    event.preventDefault();
+    if (material) {
+        carrinho.push(material);
+        console.log(carrinho);
+
+    } else {
+        alert('Material não encontrado');
+    }
 
 });
