@@ -12,9 +12,19 @@
         <h1>Consulta de preço</h1>
         <form class="formulario">
             <input type="text" id="codigo" placeholder="Insira o código do produto">
+
             <div class="btns">
                 <button id="btn-consulta">Consultar</button>
                 <button id="btn-comprar">Comprar</button>
+            </div>
+            <div class="consulta">
+                <span id="nome">Produto:</span>
+                <span id="nome-consulta"> </span>
+            </div>
+            <div class="preco">
+                <span id="preco">Valor:</span>
+                <span id="preco-consulta"></span>
+
             </div>
         </form>
     </div>
@@ -59,7 +69,28 @@
             width: 22vh;
             margin-top: 1rem;
         }
+
+        .preco,
+        .consulta {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            margin-top: 1rem;
+
+        }
+
+        #nome,
+        #preco {
+            margin: 10px;
+        }
+
+        #nome-consulta,
+        #preco-consulta {
+            font-weight: bold;
+        }
     </style>
+    <script src="script.js"></script>
 
 </body>
 
